@@ -10,7 +10,7 @@ Tài liệu này bao gồm có
 * Các kiến trúc và thư viện do Detomo chọn lọc sử dụng cho các dự án của mình.
 
 Các chủ đề được đề cập tới là:
-1. Basic convention: Các quy định cơ bản nhất khi phát triển hệ thống sử dụng PHP/Laravel.
+1. [Basic convention](docs/Basic/README.md): Các quy định cơ bản nhất khi phát triển hệ thống sử dụng PHP/Laravel.
 2. System structure: Quy ước khi thiết kế chương trình, sử dụng service layer và repository layer…
 3. Laravel coding convention: Quy ước khi lập trình sử dụng framework Laravel (MVC design pattern, các component của Laravel, Laravel best practice).
 4. Solution collection: Các thư viện chọn lọc để giải quyết yêu cầu về các tính năng cụ thể.
