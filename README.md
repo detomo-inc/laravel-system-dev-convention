@@ -14,7 +14,7 @@ Các chủ đề được đề cập tới là:
 2. System structure: Quy ước khi thiết kế chương trình, sử dụng service layer và repository layer…
 3. Laravel coding convention: Quy ước khi lập trình sử dụng framework Laravel (MVC design pattern, các component của Laravel, Laravel best practice).
 4. Solution collection: Các thư viện chọn lọc để giải quyết yêu cầu về các tính năng cụ thể.
-5. Experiences
+5. [Experiences](docs/Experience/README.md)
 6. Laravel + Vuejs: Xây dựng hệ thống theo kiến trúc backend/frontend.
 
 ## Hướng dẫn cách viết tài liệu
