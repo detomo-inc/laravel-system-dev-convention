@@ -8,6 +8,8 @@ Với các bạn fresher, ban đầu chỉ yêu cầu làm theo phiên bản nà
 
 Nội dung tài liệu này gồm có
 * PHP coding convention.
+  * Tóm tắt quy tắc cơ bản
+  *
 * Laravel basic convention.
 
 ## PHP coding convention
