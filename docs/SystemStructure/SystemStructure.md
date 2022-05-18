@@ -120,8 +120,6 @@ Với phương châm và mục tiêu nêu ra trong 2 phần trên, sẽ chia lay
 ##### Don't:
 + Thực hiện các xử lý Business Logic
 
-
-
 ### Model
 ##### Role:
 + Thực hiện access với DB 
@@ -129,10 +127,8 @@ Với phương châm và mục tiêu nêu ra trong 2 phần trên, sẽ chia lay
 + Cấu trúc data
 ##### Don't know:
 + Không hiểu business, không biết phải xử lý data như thế nào (nhiệm vụ của Service)
-
 ##### Do:
 + Access DB thông qua library của Framework
-
 ##### Don't:
 + Xử lý Business Logic
 + Xử lý data phức tạp (chỉ thực hiện mapping và các xử lý được Framework hỗ trợ)
@@ -147,7 +143,7 @@ public function showSingleObjectInfo(ShowSIngleObjectRequest $request)
     //1. convert data from request to DTO for service
     $searchParams = [
         'id' => request->id,
-    ]
+    ];
     //2. call service to get data
     $singleObjectData =
         $this->singleObjectService->getSingleObjectInfo($searchParams);
@@ -165,7 +161,7 @@ public function updateSingleObjectInfo(UpdateSingleObjectRequest $request)
         'name2' => request->name2,
         'name3' => request->name3,
         'name4' => request->name4,            
-    ]
+    ];
     //2. call service to get data
     $updatedObjectData =
         $this->singleObjectService->updateSingleObjectInfo($updateObjectData);
@@ -238,7 +234,7 @@ public function showComplicatedObjectInfo(ShowComplicatedObjectRequest $request)
         'param1' => request->param1,
         'param2' => request->param2,
         'param3' => request->param3,
-    ]
+    ];
     //2. call service to get data
     $complicatedObjectData =
         $this->complicatedObjectService->getComplicatedObjectInfo($searchParams);
@@ -291,7 +287,7 @@ public function processComplicatedLogic(ProcessComplicatedRequest $request)
         'param1' => request->param1,
         'param2' => request->param2,
         'param3' => request->param3,
-    ]
+    ];
     //2. call service to get data
     $processResult =
         $this->businessLogicService->processComplicatedLogic($processParams);
