@@ -25,7 +25,7 @@
 ## Software Structure Diagram
 Với phương châm và mục tiêu nêu ra trong 2 phần trên, sẽ chia layer theo model MVC của Laravel trong đó phần Model chia nhỏ hơn thành các layer Service, Repository và Model như mô tả trong hình bên dưới:
 
-![Software Structure Diagram](https://github.com/detomo-inc/laravel-system-dev-convention/blob/main/docs/SystemStructure/architecture_common.png "Software Structure Diagram")
+![Software Structure Diagram](https://github.com/detomo-inc/laravel-system-dev-convention/blob/main/docs/SoftwareStructure/SoftwareArchitectureDiagram.png "Software Structure Diagram")
 
 ### Routing
 
