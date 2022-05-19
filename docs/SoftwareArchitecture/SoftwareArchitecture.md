@@ -1,5 +1,5 @@
-# Software Structure
-## Tiêu chuẩn và mục tiêu chuẩn hóa System Structure
+# Software Architecture
+## Tiêu chuẩn và mục tiêu chuẩn hóa Software Architecture
 + Tạo điều kiện dễ dàng hơn để team có nhiều member cùng làm việc trên 1 dự án:
   + Các member đều hiểu logic nào nên được viết ở đâu
   + Các logic giống nhau được đặt ở trong cùng 1 class/package, tạo điều kiện dễ dàng cho việc common hóa logic giống nhau, tránh tạo ra nhiều logic gần giống nhau trong dự án
@@ -10,8 +10,8 @@
   + Phân chia rõ ràng những logic phụ thuộc vào Framework và logic độc lập với Framework (business logic), nhờ đó khi nâng cấp or chuyển đổi Framework thì vẫn dùng lại được phần logic business
 + Giúp team tập trung hơn vào việc code phần liên quan đến business logic bằng cách chuẩn hóa phần logic không liên quan đến Business Logic (chính là phần phụ thuộc vào Framework)
 
-## Phương châm chuẩn hóa System Structure
-Để thực hiện các tiêu chuẩn và mục tiêu chuẩn hóa System Structure ở trên, sẽ thực hiện chuẩn hóa System Structure theo phương châm sau:
+## Phương châm chuẩn hóa Software Architecture
+Để thực hiện các tiêu chuẩn và mục tiêu chuẩn hóa Software Architecture ở trên, sẽ thực hiện chuẩn hóa Software Architecture theo phương châm sau:
 + Phân chia rõ vai trò nhiệm vụ của từng Layer
 + Chuẩn hóa logic phải viết trong những phần phụ thuộc vào FrameWork theo hướng giảm thiểu
   + Phần phụ thuộc vào Framework: Route, Controller, Repository, Model
@@ -22,10 +22,10 @@
 + Business Logic tập trung trong Service layer, tạo điều kiện dễ dàng dùng lại khi nâng cấp Framework hoặc khi chuyển sang Framework khác cùng ngôn ngữ. 
 + Tạo điều kiện dễ dàng cho maintenance về sau cũng như common hóa trong quá trình code
 
-## Software Structure Diagram
+## Software Architecture Diagram
 Với phương châm và mục tiêu nêu ra trong 2 phần trên, sẽ chia layer theo model MVC của Laravel trong đó phần Model chia nhỏ hơn thành các layer Service, Repository và Model như mô tả trong hình bên dưới:
 
-![Software Structure Diagram](https://github.com/detomo-inc/laravel-system-dev-convention/blob/main/docs/SoftwareStructure/SoftwareArchitectureDiagram.png "Software Structure Diagram")
+![Software Architecture Diagram](https://github.com/detomo-inc/laravel-system-dev-convention/blob/main/docs/SoftwareStructure/SoftwareArchitectureDiagram.png "Software Architecture Diagram")
 
 ### Routing
 
@@ -67,7 +67,7 @@ Với phương châm và mục tiêu nêu ra trong 2 phần trên, sẽ chia lay
 + Chuyển kết quả xử lý nhận được từ Service sang cho View
 
 ##### Don't:
-+ Thực hiện các xử lý business logic
++ Thực hiện các xử lý Business Logic
 + Thực hiện các xử lý access DB
 
 ##### Know: 
