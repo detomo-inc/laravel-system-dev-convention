@@ -7,16 +7,14 @@ Tài liệu này mô tả các convention cơ bản nhất, được xem là b�
 Với các bạn fresher, ban đầu chỉ yêu cầu làm theo phiên bản này. Cùng với sự trưởng thành của member, sẽ yêu cầu học tập và áp dụng các phần convention khó hơn.
 
 Nội dung tài liệu này gồm có
-* PHP coding convention.
-  * Tóm tắt quy tắc cơ bản
-  * PSR (PHP Standards Recommendations)
-* Laravel basic convention.
+* Tóm tắt quy tắc cơ bản
+* PSR (PHP Standards Recommendations)
 
-## PHP coding convention
+*Chú ý khi tạo tài liệu này:* Tài liệu này chỉ mô tả các convention của PHP, không liên quan đến các yếu tố đặc thù của Laravel, có thể được áp dụng cho bất kỳ dự án PHP nào.
 
-### Tóm tắt quy tắc cơ bản
+## Tóm tắt quy tắc cơ bản
 
-#### Quy tắc đặt tên - naming convention
+### Quy tắc đặt tên - naming convention
 
 * Tên lớp: (đặt theo PascalCase) viết hoa chữ cái đầu tiên của mỗi từ.
     Ví dụ: `Product`, `Customer`.
@@ -35,7 +33,7 @@ Nội dung tài liệu này gồm có
 * Tên phải có nghĩa, không được đặt tên kiểu viết tắt. VD: `uName, pName, idl, a, a1, doFA`.
 * Tránh đặt những tên quá chung chung, tối nghĩa. VD: `top, doIncrease, getAll`.
 
-#### Quy tắc về số lượng
+### Quy tắc về số lượng
 
 * Hàm không nên quá 30 dòng.
 * Lớp không nên vượt quá 500 dòng.
@@ -45,7 +43,7 @@ Nội dung tài liệu này gồm có
 * Một dòng không nên dài quá 80 ký tự.
 * Các câu lệnh lồng nhau tối đa 4 cấp.
 
-#### Quy tắc xuống hàng
+### Quy tắc xuống hàng
 
 * Nếu có dấu "," thì xuống hàng sau dấu ",".
     ```php
@@ -67,18 +65,18 @@ Nội dung tài liệu này gồm có
 * Nếu có nhiều cấp lồng nhau, thì xuống hàng theo từng cấp.
 * Dòng xuống hàng mới thì được bắt đầu ở cùng cột với đoạn lệnh cùng cấp ở trên.
 
-#### Comment
+### Comment
 
 * Hạn chế dùng comment để giải thích code, thay vào đó hãy cải thiện đoạn code của bạn.
     Tuy nhiên, nếu chưa đủ năng lực để viết code thật tốt (hàm thật ngắn gọn), hãy để 1 dòng comment giải thích qua đoạn code này làm gì.
 * Chỉ nên dùng comment khi viết documentation cho thư viện, thông tin đính kèm cho class …
 
-### Chi tiết hơn về PSR (PHP Standards Recommendations)
+## PSR (PHP Standards Recommendations)
 
 * PHP có một chuẩn viết code là PSR. PSR là viết tắt của từ PHP Standards Recommendation.
 * Hiện tại thì có 5 chuẩn từ PSR-0 đến PSR-12 do các thành viên của nhóm FIG(Framework Interop Group) đề xuất. Trong này có những chuẩn bị loại bỏ và được thay thế bằng chuẩn mới (ví dụ PSR-12 thay thế cho PSR-2).
 
-#### Chuẩn PSR-0, PSR-4: Chuẩn Autoloading
+### Chuẩn PSR-0, PSR-4: Chuẩn Autoloading
 
 Những mô tả sau bắt buộc phải tuân theo:
 
@@ -87,7 +85,7 @@ Những mô tả sau bắt buộc phải tuân theo:
 * Mỗi namespace phải có một top-level namespace (“Vendor name”), gọi là namespace gốc.
 * Mỗi namespace có thể có nhiều sub-namespace (namespace con).
 
-#### Chuẩn PSR-1 : Chuẩn cơ bản
+### Chuẩn PSR-1 : Chuẩn cơ bản
 
 * Code phải được viết trong cặp thẻ `<?php ?>` và cặp thẻ ngắn `<?= ?>` thay cho echo. Không sử dụng các thẻ kiểu `<? ?>`.
 * File chỉ được sử dụng UTF-8 không có BOM (BOM - Byte Order Mark là các chuỗi EF,BB,BF ở đầu file cho phép phần mềm biết đây là 1 file UTF-8).
@@ -102,7 +100,7 @@ Chi tiết tham khảo tại
 * [PSR-1 phiên bản tiếng Anh](https://www.php-fig.org/psr/psr-1/)
 * [PSR-1 bản tiếng Việt dịch bởi Google Translation](https://www-php--fig-org.translate.goog/psr/psr-1/?_x_tr_sl=en&_x_tr_tl=vi&_x_tr_hl=ja&_x_tr_pto=wapp)
 
-#### Chuẩn PSR-12: Chuẩn mở rộng
+### Chuẩn PSR-12: Chuẩn mở rộng
 
 * Code phải tuân thủ PSR-1 & PSR-0.
 * File phải sử dụng ký tự xuống dòng kiểu Unix (LF - linefeed).
