@@ -114,3 +114,7 @@ Common syntax | Shorter and more readable syntax
 * Do not override standard framework features to avoid problems related to updating the framework version and many other issues.
 * Use modern PHP syntax where possible, but don't forget about readability.
 * Avoid using View Composers and similar tools unless you really know what you're doing. In most cases, there is a better way to solve the problem.
+
+## Refenrences
+
+* [Laravel best practice](https://github.com/alexeymezenin/laravel-best-practices), [Bản tiếng Việt](https://chungnguyen.xyz/posts/code-laravel-lam-sao-cho-chuan)
