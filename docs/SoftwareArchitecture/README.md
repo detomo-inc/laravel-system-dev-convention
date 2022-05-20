@@ -19,18 +19,18 @@
   + Tận dụng tool tự gen source code cho phần này nếu có thể
   + Tận dụng library của Framework cho những xử lý không liên quan đến Business Logic
   + Chuẩn hóa coding rule để có thể tham khảo copy từ đã có khi cần thêm chức năng mới
-+ Business Logic tập trung trong Service layer, tạo điều kiện dễ dàng dùng lại khi nâng cấp Framework hoặc khi chuyển sang Framework khác cùng ngôn ngữ. 
++ Business Logic tập trung trong Service layer, tạo điều kiện dễ dàng dùng lại khi nâng cấp Framework hoặc khi chuyển sang Framework khác cùng ngôn ngữ.
 + Tạo điều kiện dễ dàng cho maintenance về sau cũng như common hóa trong quá trình code
 
 ## Software Architecture Diagram
 Với phương châm và mục tiêu nêu ra trong 2 phần trên, sẽ chia layer theo model MVC của Laravel trong đó phần Model chia nhỏ hơn thành các layer Service, Repository và Model như mô tả trong hình bên dưới:
 
-![Software Architecture Diagram](https://github.com/detomo-inc/laravel-system-dev-convention/blob/main/docs/SoftwareStructure/SoftwareArchitectureDiagram.png "Software Architecture Diagram")
+![Software Architecture Diagram](./SoftwareArchitectureDiagram.png)
 
 ### Routing
 
 ##### Role
-+ Route request tới method tương ứng của Controller 
++ Route request tới method tương ứng của Controller
 
 ##### Do:
 + Map uri với Middleware và Controller
@@ -70,7 +70,7 @@ Với phương châm và mục tiêu nêu ra trong 2 phần trên, sẽ chia lay
 + Thực hiện các xử lý Business Logic
 + Thực hiện các xử lý access DB
 
-##### Know: 
+##### Know:
 + Hiểu yêu cầu nhận được từ View (What to do)
 + Hiểu cần hiển thị data gì cho View (What to display)
 + Service nào có thể xử lý được yêu cầu (Who to dispatch)
@@ -89,7 +89,7 @@ public function getSingleObjectInfo($searchParams)
     //1. call repository to get data
     $singleObjectData =
         $this->singleObjectRepo->getObjectInfoById($searchParams['id']);
-   
+
     //return
     return $singleObjectData;
 }
@@ -100,11 +100,11 @@ public function updateSingleObjectInfo($updateObjectData)
 {
     //1. do validation
     $this->checkObjectForUpdate($updateObjectData);
- 
+
     //2. call repository to get data
     $updatedObjectData =
         $this->singleObjectRepository->updateSingleObjectInfo($updateObjectData);
-   
+
     //return
     return $updatedObjectData;
 }
@@ -123,7 +123,7 @@ public function showComplicatedObjectInfo(ShowComplicatedObjectRequest $request)
     //2. call service to get data
     $complicatedObjectData =
         $this->complicatedObjectService->getComplicatedObjectInfo($searchParams);
-   
+
     //return View
     return view('complicatedObjectView', compact('complicatedObjectData'));
 }
@@ -142,7 +142,7 @@ public function processComplicatedLogic(ProcessComplicatedRequest $request)
     //2. call service to get data
     $processResult =
         $this->businessLogicService->processComplicatedLogic($processParams);
-   
+
     //return View
     return view('processResultView', compact('processResult'));
 }
@@ -189,7 +189,7 @@ public function getSingleObjectInfo($searchParams)
     //1. call repository to get data
     $singleObjectData =
         $this->singleObjectRepo->getObjectInfoById($searchParams['id']);
-   
+
     //return
     return $singleObjectData;
 }
@@ -200,11 +200,11 @@ public function updateSingleObjectInfo($updateObjectData)
 {
     //1. do validation
     $this->checkObjectForUpdate($updateObjectData);
- 
+
     //2. call repository to get data
     $updatedObjectData =
         $this->singleObjectRepository->updateSingleObjectInfo($updateObjectData);
-   
+
     //return
     return $updatedObjectData;
 }
@@ -218,21 +218,21 @@ public function getComplicatedObjectInfo($searchParams)
     $searchParams1 = $searchParams['param1'];
     $objectData1 =
         $this->singleObjectRepository1->updateSingleObjectInfo($searchParams1);
-   
+
     //2. call repository to get data #2
     $searchParams2 = $searchParams['param2'];
     $objectData2 =
         $this->singleObjectRepository2->updateSingleObjectInfo($searchParams2);
- 
+
     //3. call repository to get data #3
     $searchParams3 = $searchParams['param3'];
     $objectData3 =
         $this->singleObjectRepository3->updateSingleObjectInfo($searchParams3);
- 
+
     //4. combine data
     $complicatedObjectData =
         $this->combineObject(objectData1, objectData2, objectData3);
- 
+
     //return result
     return $complicatedObjectData;
 }
@@ -264,14 +264,14 @@ public function processComplicatedLogic($processParams)
     $this->saveProcessResult(
                     $processResult1,
                     $processResult2,
-                    $processResult3);  
-                    
+                    $processResult3);
+
     //6. create process result
     $processResult = $this->combineProcessResult(
                     $processResult1,
                     $processResult2,
                     $processResult3);
- 
+
     //return
     return $processResult;
 }
@@ -289,7 +289,7 @@ public function registerNewUser($userData)
     $savedUser = $this->userRepository->create($userData);
     //3. create sendmail job
     $this->createSendMailJob($userData);
- 
+
     //return
     return $savedUser;
 }
@@ -317,8 +317,8 @@ private function createSendMailJob($userData) {
 + Với public method, code làm sao để đọc method có thể nắm được flow xử lý của method đó
 + Tạo private method để thực các xử lý check …
   + Logic check trong Service chỉ apply cho các check phức tạp liên quan đến nhiều object hoăc nhiều loại data. Với check đơn giản thì đưa vào Request.
-+ Nên tạo private method cho mỗi block xử lý trong flow xử lý, trừ khi xử lý đó rất đơn giản có thể thực hiện trong 1 câu lệnh đơn giản, hoặc có thể giao hoàn toàn cho các Helper hoặc Repository 
-+ Nên code xử lý của public method theo flow (*): 
++ Nên tạo private method cho mỗi block xử lý trong flow xử lý, trừ khi xử lý đó rất đơn giản có thể thực hiện trong 1 câu lệnh đơn giản, hoặc có thể giao hoàn toàn cho các Helper hoặc Repository
++ Nên code xử lý của public method theo flow (*):
   + Check input (optional, chỉ cần khi có check phức tạp)
   + Tổng hợp output data từ input data & DB (chưa save và DB vội)
   + Lưu output save vào DB
@@ -374,7 +374,7 @@ public function updateSingleObjectInfo($updateObjectData)
 
 ### Model
 ##### Role:
-+ Thực hiện access với DB 
++ Thực hiện access với DB
 ##### Know:
 + Cấu trúc data
 ##### Don't know:
