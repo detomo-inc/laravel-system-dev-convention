@@ -12,8 +12,8 @@ Tài liệu này bao gồm có
 Các chủ đề được đề cập tới là:
 1. [Basic convention](docs/Basic/README.md): Các quy định cơ bản nhất khi phát triển hệ thống sử dụng PHP/Laravel.
 2. [Software Architecture](docs/SoftwareArchitecture/SoftwareArchitecture.md): Quy ước chia layer khi thiết kế software (sử dụng Service layer và Repository layer ...)
-3. Laravel coding convention: Quy ước khi lập trình sử dụng framework Laravel (MVC design pattern, các component của Laravel, Laravel best practice).
-4. Solution collection: Các thư viện chọn lọc để giải quyết yêu cầu về các tính năng cụ thể.
+3. [Laravel coding convention](docs/LaravelCodingConvention/README.md): Quy ước khi lập trình sử dụng framework Laravel (MVC design pattern, các component của Laravel, Laravel best practice).
+4. [Solution collection](docs/Solutions/README.md): Các thư viện chọn lọc để giải quyết yêu cầu về các tính năng cụ thể.
 5. [Experiences](docs/Experience/README.md)
 6. Laravel + Vuejs: Xây dựng hệ thống theo kiến trúc backend/frontend.
 

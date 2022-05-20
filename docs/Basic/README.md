@@ -9,7 +9,7 @@ Với các bạn fresher, ban đầu chỉ yêu cầu làm theo phiên bản nà
 Nội dung tài liệu này gồm có
 * PHP coding convention.
   * Tóm tắt quy tắc cơ bản
-  *
+  * PSR (PHP Standards Recommendations)
 * Laravel basic convention.
 
 ## PHP coding convention
@@ -128,10 +128,6 @@ Chi tiết tham khảo tại
 
 * [PSR-12 phiên bản tiếng Anh](https://www.php-fig.org/psr/psr-12/)
 * [PSR-12 bản tiếng Việt dịch bởi Google Translation](https://www-php--fig-org.translate.goog/psr/psr-12/?_x_tr_sl=en&_x_tr_tl=vi&_x_tr_hl=ja&_x_tr_pto=wapp)
-
-## Laravel basic convention
-
-TBD
 
 ## Tham khảo
 
