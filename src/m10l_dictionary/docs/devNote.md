@@ -51,3 +51,7 @@ I make this note to used while creating tutorial in the future.
     ```shell
     php artisan migrate:rollback --step=1
     ```
+* Create seeder
+    ```shell
+    php artisan db:seed --class=UserSeeder
+    ```
