@@ -55,3 +55,20 @@ I make this note to used while creating tutorial in the future.
     ```shell
     php artisan db:seed --class=UserSeeder
     ```
+
+## Create authentication
+
+* Create SimpleAuth middleware
+    ```shell
+    php artisan make:middleware SimpleAuth
+    ```
+* Create SimpleLogin controller
+    ```shell
+    $ php artisan make:controller SimpleLoginController
+    ```
+
+Create code for middleware, controller, view, route.
+
+### References
+
+* [ユーザーログイン機能の作成 #Laravel頻出パターン #Laravel基礎](https://note.com/laravelstudy/n/n085aac4506bb?magazine_key=me6288d51a1b8)
