@@ -1,0 +1,319 @@
+﻿# A5:ER FORMAT:16
+# A5:ER ENCODING:UTF8
+# A5:ER Mk-1 Copyright © 2007 m.matsubara
+# A5:SQL Mk-2 Version 2.17.1 Copyright © 1997 - 2022 m.matsubara
+#  https://a5m2.mmatsubara.com
+
+[Manager]
+ProjectName=M10L dictionary
+Author=ThanhTT
+MaxEntityRowShow=1000
+ReadOnlyRecommend=0
+Page=Main
+PageInfo="Main",7,"A4Landscape",$FFFFFF
+LogicalView=1
+DecodeDomain=0
+ViewModePageIndividually=1
+ViewMode=7
+ViewFormat=0
+UseNondependenceDashLine=0
+FontName=Tahoma
+FontSize=6
+PaperSize=A4Landscape
+HeaderLeft=
+HeaderCenter=
+HeaderRight=
+FooterLeft=
+FooterCenter=
+FooterRight=
+ShowPageoutRelation=1
+RDBMSType=5
+RDBMSTypeName=MySQL
+DefaultPkName=%0:s_PKC
+DefaultPkIndexName=%0:s_PKI
+DefaultIndexName=%0:s_IX%1:d
+DefaultFkName=%0:s_FK%1:d
+SqlSeparator=0
+UpperCaseKeyword=0
+ShowTag=1
+ShowCommonAttributes=0
+BugFixEntityWidth=1
+
+[Entity]
+PName=users
+LName=User
+Comment=
+TableOption=
+Page=MAIN
+Left=200
+Top=200
+Field="ID","id","int","NOT NULL",0,"","",$FFFFFFFF,""
+Field="Name","name","string","NOT NULL",,"","",$FFFFFFFF,""
+Field="Email","email","string","NOT NULL",,"","",$FFFFFFFF,""
+Field="Password","password","string","NOT NULL",,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20220521211152
+Position="MAIN",200,200
+ZOrder=1
+
+[Entity]
+PName=groups
+LName=Group
+Comment=
+TableOption=
+Page=MAIN
+Left=200
+Top=600
+Field="ID","id","int","NOT NULL",0,"","",$FFFFFFFF,""
+Field="Name","name","string","NOT NULL",,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20220521204434
+Position="MAIN",200,600
+ZOrder=2
+
+[Entity]
+PName=user_groups
+LName=User group
+Comment=
+TableOption=
+Page=MAIN
+Left=200
+Top=400
+Field="ID","id","int","NOT NULL",0,"","",$FFFFFFFF,""
+Field="User","user_id","int","NOT NULL",,"","",$FFFFFFFF,""
+Field="Group","group_id","int","NOT NULL",,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20220521204501
+Position="MAIN",200,400
+ZOrder=3
+
+[Relation]
+Entity1=users
+Entity2=user_groups
+RelationType1=2
+RelationType2=3
+Fields1=id
+Fields2=user_id
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,1620,8380,1333,R,R,""
+Dependence=0
+Caption=
+PName=
+ModifiedDateTime=20220521204714
+LineMode=0
+Bar1=162
+Bar2=838
+Bar3=133
+TermPos1=R
+TermPos2=R
+ZOrder=4
+
+[Relation]
+Entity1=groups
+Entity2=user_groups
+RelationType1=2
+RelationType2=3
+Fields1=id
+Fields2=group_id
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,2956,7044,1697,R,R,""
+Dependence=0
+Caption=
+PName=
+ModifiedDateTime=20220521204720
+LineMode=0
+Bar1=296
+Bar2=704
+Bar3=170
+TermPos1=R
+TermPos2=R
+ZOrder=5
+
+[Entity]
+PName=dictionaries
+LName=Dictionary
+Comment=
+TableOption=
+Page=MAIN
+Left=700
+Top=200
+Field="ID","id","int","NOT NULL",0,"","",$FFFFFFFF,""
+Field="User","name","string","NOT NULL",,"","",$FFFFFFFF,""
+Field="Languages","languages","json","NOT NULL",,"","",$FFFFFFFF,""
+Field="Original language","original_language","string","NOT NULL",,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20220521205451
+Position="MAIN",700,200
+ZOrder=6
+
+[Entity]
+PName=dictionary_groups
+LName=Dictionary group
+Comment=
+TableOption=
+Page=MAIN
+Left=700
+Top=600
+Field="ID","id","int","NOT NULL",0,"","",$FFFFFFFF,""
+Field="Dictionary","dictionary_id","int","NOT NULL",,"","",$FFFFFFFF,""
+Field="Group","group_id","int","NOT NULL",,"","",$FFFFFFFF,""
+Field="Is owner","is_owner","int","NOT NULL",,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20220521204626
+Position="MAIN",700,600
+ZOrder=7
+
+[Relation]
+Entity1=groups
+Entity2=dictionary_groups
+RelationType1=2
+RelationType2=3
+Fields1=id
+Fields2=group_id
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,4392,5608,4460,R,R,""
+Dependence=0
+Caption=
+PName=
+ModifiedDateTime=20220521204728
+LineMode=0
+Bar1=439
+Bar2=561
+Bar3=446
+TermPos1=R
+TermPos2=R
+ZOrder=8
+
+[Relation]
+Entity1=dictionaries
+Entity2=dictionary_groups
+RelationType1=2
+RelationType2=3
+Fields1=id
+Fields2=dictionary_id
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,3736,6264,4225,R,R,""
+Dependence=0
+Caption=
+PName=
+ModifiedDateTime=20220521204740
+LineMode=0
+Bar1=374
+Bar2=626
+Bar3=422
+TermPos1=R
+TermPos2=R
+ZOrder=9
+
+[Entity]
+PName=words
+LName=Word
+Comment=
+TableOption=
+Page=MAIN
+Left=1300
+Top=200
+Field="ID","id","int","NOT NULL",0,"","",$FFFFFFFF,""
+Field="Dictionary","dictionary_id","int","NOT NULL",,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20220521205018
+Position="MAIN",1300,200
+ZOrder=10
+
+[Entity]
+PName=translations
+LName=Transation
+Comment=
+TableOption=
+Page=MAIN
+Left=1800
+Top=200
+Field="ID","id","int","NOT NULL",0,"","",$FFFFFFFF,""
+Field="Word","word_id","int","NOT NULL",,"","",$FFFFFFFF,""
+Field="Language","language","string","NOT NULL",,"","",$FFFFFFFF,""
+Field="Original language","original_lanugage","string",,,"","",$FFFFFFFF,""
+Field="Text","text","text",,,"","",$FFFFFFFF,""
+Field="Pronunciation","pronunciation","text",,,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20220521205425
+Position="MAIN",1800,200
+ZOrder=11
+
+[Relation]
+Entity1=dictionaries
+Entity2=words
+RelationType1=2
+RelationType2=3
+Fields1=id
+Fields2=dictionary_id
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,1521,8479,2255,R,R,""
+Dependence=0
+Caption=
+PName=
+ModifiedDateTime=20220521205225
+LineMode=0
+Bar1=152
+Bar2=848
+Bar3=226
+TermPos1=R
+TermPos2=R
+ZOrder=12
+
+[Relation]
+Entity1=words
+Entity2=translations
+RelationType1=2
+RelationType2=3
+Fields1=id
+Fields2=word_id
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,1778,8222,1521,R,R,""
+Dependence=0
+Caption=
+PName=
+ModifiedDateTime=20220521205232
+LineMode=0
+Bar1=178
+Bar2=822
+Bar3=152
+TermPos1=R
+TermPos2=R
+ZOrder=14
+
+[Entity]
+PName=languages
+LName=Language
+Comment=
+TableOption=
+Page=MAIN
+Left=150
+Top=850
+Field="ID","id","int","NOT NULL",0,"","",$FFFFFFFF,""
+Field="Name","name","string","NOT NULL",,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20220521205300
+Position="MAIN",150,850
+ZOrder=15
