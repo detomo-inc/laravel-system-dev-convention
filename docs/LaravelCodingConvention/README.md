@@ -1,6 +1,6 @@
 # Laravel coding convention
 
-## Pgoramming
+## Programming
 
 * Nên bao các xử lý có phát sinh ghi data trong DB vào transaction. Điều này không chỉ giúp rollback lại khi có error, mà còn tăng tốc độ khi một request gọi nhiều SQL query. Sample (TBD)
 * Không thực hiện truy vấn trong Blade view
