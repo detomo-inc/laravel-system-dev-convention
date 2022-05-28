@@ -5,6 +5,18 @@
 * Tái sử dụng code của bạn bất cứ khi nào có thể. Hễ bạn thấy đoạn code nào được viết từ 2 lần trở lên, hãy nghiên cứu đưa nó về 1 hàm và gọi đến, nhiều hàm có cùng điểm giống nhau thì tổ chức thành class.
 * Thậm chí nếu các code không được viết giống hệt nhau, nhưng mình biết về cơ bản nó là cùng một flow xử lý, thì cũng nền tìm cách đưa nó thành code sử dụng chung.
 
+## Database
+
+### SQLite
+
+Khi dùng SQLite database, phần khai báo trong file .env sẽ được viết như sau (giả sử file DB là database/my_database.sqlite).
+```env
+DB_CONNECTION=sqlite
+DB_FOREIGN_KEYS=true
+DB_DATABASE=database/my_database.sqlite
+```
+và xóa (comment out) các phần khai báo DB_xxx khác đi.
+
 ## Array
 * Để dấu phẩy sau phần tử cuối cùng của array.
   Điều này sẽ giúp dễ dàng mỗi khi bổ sung phần tử mới vào array (không sợ quên dấu phẩy ở phần tử phía trước), cũng không khiến diff báo dòng phía trước có sự khác biệt.
