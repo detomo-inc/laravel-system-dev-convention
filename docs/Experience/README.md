@@ -8,14 +8,33 @@
 ## Database
 
 ### SQLite
+(cho code sử dụng version Laravel <= 9)
 
-Khi dùng SQLite database, phần khai báo trong file .env sẽ được viết như sau (giả sử file DB là database/my_database.sqlite).
-```env
-DB_CONNECTION=sqlite
-DB_FOREIGN_KEYS=true
-DB_DATABASE=database/my_database.sqlite
-```
-và xóa (comment out) các phần khai báo DB_xxx khác đi.
+* Khi dùng SQLite, trong file .env ta khai báo như sau:
+    ```env
+    DB_CONNECTION=sqlite
+    DB_FOREIGN_KEYS=true
+    ```
+    và xóa (comment out) các phần khai báo DB_xxx khác đi.\
+    Theo mặc định, file SQLite chứa database sẽ là `database/database.sqlite`.
+* Nếu muốn đổi tên/đường dẫn của file SQLite database, cần chú ý điều sau
+    * Theo code trong file `config/database.php`, thì phải khai báo *đường dẫn tuyệt đối* tới file database cho biến DB_DATABASE trong file .env. Ví dụ
+        ```env
+        DB_DATABASE=C:/data/SQLite/projectAbc.sqlite
+        ```
+        Nếu khai báo đường dẫn tương đối ở đây, thì command line (ví dụ như `php artisan migrate`) và web server sẽ có một cái không chạy được, tùy theo cách ta khai báo đường dẫn tương đối so với thư mục Laravel root hay thư mục web `public`.
+    * Nếu muốn khai báo đường dẫn tương đối, ví dụ
+        ```env
+        DB_DATABASE=database/projectAbc.sqlite
+        ```
+        thì ta phải sửa đoạn code trong file config/database.php
+        ```php
+        'database' => env('DB_DATABASE', database_path('database.sqlite')),
+        ```
+        thành
+        ```php
+        'database' => database_path(env('DB_DATABASE', 'database.sqlite')),
+        ```
 
 ## Array
 * Để dấu phẩy sau phần tử cuối cùng của array.
