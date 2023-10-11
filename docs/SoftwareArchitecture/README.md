@@ -112,7 +112,7 @@ public function updateSingleObjectInfo($updateObjectData)
 
 Xử lý tổng hợp thông tin để hiển thị (không có xử lý update)
 ``` php
-public function showComplicatedObjectInfo(ShowComplicatedObjectRequest $request)
+public function showCombinedObjectInfo(ShowComplicatedObjectRequest $request)
 {
     //1. convert data from request to DTO for service
     $searchParams = [
@@ -121,11 +121,11 @@ public function showComplicatedObjectInfo(ShowComplicatedObjectRequest $request)
         'param3' => request->param3,
     ];
     //2. call service to get data
-    $complicatedObjectData =
-        $this->complicatedObjectService->getComplicatedObjectInfo($searchParams);
+    $combinedObjectData =
+        $this->combinedObjectService->getComplicatedObjectInfo($searchParams);
 
     //return View
-    return view('complicatedObjectView', compact('complicatedObjectData'));
+    return view('combinedObjectView', compact('combinedObjectData'));
 }
 ```
 
