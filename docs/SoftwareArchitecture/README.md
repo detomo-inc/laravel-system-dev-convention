@@ -230,11 +230,11 @@ public function getComplicatedObjectInfo($searchParams)
         $this->singleObjectRepository3->updateSingleObjectInfo($searchParams3);
 
     //4. combine data
-    $complicatedObjectData =
+    $combinedObjectData =
         $this->combineObject(objectData1, objectData2, objectData3);
 
     //return result
-    return $complicatedObjectData;
+    return $combinedObjectData;
 }
 ```
 
