@@ -88,7 +88,7 @@ public function getSingleObjectInfo($searchParams)
 {
     //1. call repository to get data
     $singleObjectData =
-        $this->singleObjectRepo->getObjectInfoById($searchParams['id']);
+        $this->singleObjectService->getObjectInfoById($searchParams['id']);
 
     //return
     return $singleObjectData;
@@ -99,11 +99,11 @@ public function getSingleObjectInfo($searchParams)
 public function updateSingleObjectInfo($updateObjectData)
 {
     //1. do validation
-    $this->checkObjectForUpdate($updateObjectData);
+    $this->singleObjectService->checkObjectForUpdate($updateObjectData);
 
     //2. call repository to get data
     $updatedObjectData =
-        $this->singleObjectRepository->updateSingleObjectInfo($updateObjectData);
+        $this->singleObjectService->updateSingleObjectInfo($updateObjectData);
 
     //return
     return $updatedObjectData;
@@ -141,7 +141,7 @@ public function processComplicatedLogic(ProcessComplicatedRequest $request)
     ];
     //2. call service to get data
     $processResult =
-        $this->businessLogicService->processComplicatedLogic($processParams);
+        $this->processComplicatedLogicService->processComplicatedLogic($processParams);
 
     //return View
     return view('processResultView', compact('processResult'));
