@@ -5,6 +5,37 @@
 * Tái sử dụng code của bạn bất cứ khi nào có thể. Hễ bạn thấy đoạn code nào được viết từ 2 lần trở lên, hãy nghiên cứu đưa nó về 1 hàm và gọi đến, nhiều hàm có cùng điểm giống nhau thì tổ chức thành class.
 * Thậm chí nếu các code không được viết giống hệt nhau, nhưng mình biết về cơ bản nó là cùng một flow xử lý, thì cũng nền tìm cách đưa nó thành code sử dụng chung.
 
+## Database
+
+### SQLite
+(cho code sử dụng version Laravel <= 9)
+
+* Khi dùng SQLite, trong file .env ta khai báo như sau:
+    ```env
+    DB_CONNECTION=sqlite
+    DB_FOREIGN_KEYS=true
+    ```
+    và xóa (comment out) các phần khai báo DB_xxx khác đi.\
+    Theo mặc định, file SQLite chứa database sẽ là `database/database.sqlite`.
+* Nếu muốn đổi tên/đường dẫn của file SQLite database, cần chú ý điều sau
+    * Theo code trong file `config/database.php`, thì phải khai báo *đường dẫn tuyệt đối* tới file database cho biến DB_DATABASE trong file .env. Ví dụ
+        ```env
+        DB_DATABASE=C:/data/SQLite/projectAbc.sqlite
+        ```
+        Nếu khai báo đường dẫn tương đối ở đây, thì command line (ví dụ như `php artisan migrate`) và web server sẽ có một cái không chạy được, tùy theo cách ta khai báo đường dẫn tương đối so với thư mục Laravel root hay thư mục web `public`.
+    * Nếu muốn khai báo đường dẫn tương đối, ví dụ
+        ```env
+        DB_DATABASE=database/projectAbc.sqlite
+        ```
+        thì ta phải sửa đoạn code trong file config/database.php
+        ```php
+        'database' => env('DB_DATABASE', database_path('database.sqlite')),
+        ```
+        thành
+        ```php
+        'database' => database_path(env('DB_DATABASE', 'database.sqlite')),
+        ```
+
 ## Array
 * Để dấu phẩy sau phần tử cuối cùng của array.
   Điều này sẽ giúp dễ dàng mỗi khi bổ sung phần tử mới vào array (không sợ quên dấu phẩy ở phần tử phía trước), cũng không khiến diff báo dòng phía trước có sự khác biệt.

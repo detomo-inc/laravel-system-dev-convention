@@ -88,7 +88,7 @@ public function getSingleObjectInfo($searchParams)
 {
     //1. call repository to get data
     $singleObjectData =
-        $this->singleObjectRepo->getObjectInfoById($searchParams['id']);
+        $this->singleObjectService->getObjectInfoById($searchParams['id']);
 
     //return
     return $singleObjectData;
@@ -99,11 +99,11 @@ public function getSingleObjectInfo($searchParams)
 public function updateSingleObjectInfo($updateObjectData)
 {
     //1. do validation
-    $this->checkObjectForUpdate($updateObjectData);
+    $this->singleObjectService->checkObjectForUpdate($updateObjectData);
 
     //2. call repository to get data
     $updatedObjectData =
-        $this->singleObjectRepository->updateSingleObjectInfo($updateObjectData);
+        $this->singleObjectService->updateSingleObjectInfo($updateObjectData);
 
     //return
     return $updatedObjectData;
@@ -112,7 +112,7 @@ public function updateSingleObjectInfo($updateObjectData)
 
 Xử lý tổng hợp thông tin để hiển thị (không có xử lý update)
 ``` php
-public function showComplicatedObjectInfo(ShowComplicatedObjectRequest $request)
+public function showCombinedObjectInfo(ShowComplicatedObjectRequest $request)
 {
     //1. convert data from request to DTO for service
     $searchParams = [
@@ -121,11 +121,11 @@ public function showComplicatedObjectInfo(ShowComplicatedObjectRequest $request)
         'param3' => request->param3,
     ];
     //2. call service to get data
-    $complicatedObjectData =
-        $this->complicatedObjectService->getComplicatedObjectInfo($searchParams);
+    $combinedObjectData =
+        $this->combinedObjectService->getComplicatedObjectInfo($searchParams);
 
     //return View
-    return view('complicatedObjectView', compact('complicatedObjectData'));
+    return view('combinedObjectView', compact('combinedObjectData'));
 }
 ```
 
@@ -141,7 +141,7 @@ public function processComplicatedLogic(ProcessComplicatedRequest $request)
     ];
     //2. call service to get data
     $processResult =
-        $this->businessLogicService->processComplicatedLogic($processParams);
+        $this->processComplicatedLogicService->processComplicatedLogic($processParams);
 
     //return View
     return view('processResultView', compact('processResult'));
@@ -230,11 +230,11 @@ public function getComplicatedObjectInfo($searchParams)
         $this->singleObjectRepository3->updateSingleObjectInfo($searchParams3);
 
     //4. combine data
-    $complicatedObjectData =
+    $combinedObjectData =
         $this->combineObject(objectData1, objectData2, objectData3);
 
     //return result
-    return $complicatedObjectData;
+    return $combinedObjectData;
 }
 ```
 

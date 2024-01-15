@@ -25,3 +25,11 @@ Realtime user interfaces | Laravel Echo, Pusher | 3rd party packages and working
 Generating testing data | Seeder classes, Model Factories, Faker | Creating testing data manually
 Task scheduling | Laravel Task Scheduler | Scripts and 3rd party packages
 DB | MySQL, PostgreSQL, SQLite, SQL Server | MongoDB
+
+## Debug
+
+Sử dụng tinker
+```shell
+php artisan tinker
+```
+Tại đây, có thể gõ các lệnh để test nhanh code với các model... đã viết.
